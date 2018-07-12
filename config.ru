@@ -5,6 +5,8 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 run ApplicationController
+use StatuSesController
+use SpeciesController
 use AddHostsToUsersController
 use HostsController
 use UsersController
