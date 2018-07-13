@@ -1,34 +1,33 @@
 class StatusController < ApplicationController
 
-  # GET: /statu_ses
-  get "/statu_ses" do
+  # GET: /status
+  get "/status" do
     erb :"/statu_ses/index.html"
   end
 
-  # GET: /statu_ses/new
-  get "/statu_ses/new" do
+  # GET: /status/new
+  get "/status/new" do
     erb :"/statu_ses/new.html"
   end
 
-  # POST: /statu_ses
-  post "/statu_ses" do
-    redirect "/statu_ses"
+  # POST: /status
+  post "/status" do
+    redirect "/status"
   end
 
-  # GET: /statu_ses/5
-  get "/statu_ses/:id" do
-    erb :"/statu_ses/show.html"
+  # GET: /status/5
+  get "/status/:id" do
+    erb :"/status/show.html"
   end
 
-  # GET: /statu_ses/5/edit
-  get "/statu_ses/:id/edit" do
-    erb :"/statu_ses/edit.html"
+  # GET: /status/5/edit
+  get "/status/:id/edit" do
+    erb :"/status/edit.html"
   end
 
 
-
-  # DELETE: /statu_ses/5/delete
-  delete "/statu_ses/:id/delete" do
-    redirect "/statu_ses"
+  # DELETE: /status/5/delete
+  delete "/status/:id/delete" do
+    redirect "/status"
   end
 end
