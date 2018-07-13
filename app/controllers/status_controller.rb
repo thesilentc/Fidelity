@@ -1,4 +1,4 @@
-class StatuSesController < ApplicationController
+class StatusController < ApplicationController
 
   # GET: /statu_ses
   get "/statu_ses" do
@@ -25,10 +25,7 @@ class StatuSesController < ApplicationController
     erb :"/statu_ses/edit.html"
   end
 
-  # PATCH: /statu_ses/5
-  patch "/statu_ses/:id" do
-    redirect "/statu_ses/:id"
-  end
+
 
   # DELETE: /statu_ses/5/delete
   delete "/statu_ses/:id/delete" do
