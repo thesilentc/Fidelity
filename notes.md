@@ -38,3 +38,5 @@ User can
 8. Build views and controller actions based on the flow of your app, one step at a time, testing as you go!
  - Use shotgun and pry (or raise/inspect) all the time!
 You can use the corneal gem, but understand what it's doing!
+
+time to bust out the code n quill already 7/26/15
