@@ -10,7 +10,7 @@ class UsersController < ApplicationController
    erb :'users/show'
  end
 
- end
+end
 
 
 
@@ -39,10 +39,9 @@ class UsersController < ApplicationController
     erb :"/users/edit.html"
   end
 
-  
+
 
   # DELETE: /users/5/delete
   delete "/users/:id/delete" do
     redirect "/users"
   end
-end
