@@ -5,44 +5,59 @@ class UsersController < ApplicationController
       redirect '/hosts'
     end
 
-     get '/users/:slug' do
-   @users = Users.find_by_slug(params[:slug])
-   erb :'users/show'
- end
+    @user = User.find(params[:id])
+      if !@user.nil? && @user == current_user
+        erb :'users/show'
+      else
+        redirect '/hosts'
+      end
+    end
 
-end
-
-
+    get '/signup' do
+        if !session[:user_id]
+          erb :'users/new'
+        else
+          redirect to '/clubs'
+        end
+      end
 
   # GET: /users
-  get "/users" do
-    erb :"/users/index.html"
+  post '/signup' do
+    if params[:username] == "" || params[:password] == ""
+      redirect to '/signup'
+    else
+      @user = User.create(:username => params[:username], :password => params[:password])
+      session[:user_id] = @user.id
+      redirect '/bags'
+    end
   end
 
-  # GET: /users/new
-  get "/users/new" do
-    erb :"/users/new.html"
+  get '/login' do
+    @error_message = params[:error]
+    if !session[:user_id]
+      erb :'users/login'
+    else
+      redirect '/bags'
+    end
   end
 
-  # POST: /users
-  post "/users" do
-    redirect "/users"
+  post '/login' do
+    user = User.find_by(:username => params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect "/hosts"
+    else
+      redirect to '/signup'
+    end
   end
 
-  # GET: /users/5
-  get "/users/:id" do
-    erb :"/users/show.html"
+  get '/logout' do
+    if session[:user_id] != nil
+      session.destroy
+      redirect to '/login'
+    else
+      redirect to '/'
+    end
   end
 
-  # GET: /users/5/edit
-  get "/users/:id/edit" do
-    erb :"/users/edit.html"
-  end
-
-
-
-  # DELETE: /users/5/delete
-  delete "/users/:id/delete" do
-    redirect "/users"
-  end
 end

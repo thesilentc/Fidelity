@@ -1,1 +1,7 @@
-<h1>This is the Model's index page.</h1>
+<% @hosts.each do |host| %>
+  <%= host.name %><br />
+  <%= bag.capacity %> <br />
+  <a href="/hosts/<%=host.id%>/edit">Edit</a>
+  <br />
+  <br />
+<% end %>
