@@ -7,6 +7,19 @@
       <p>Welcome to Fidelity, a Westworld Host Creator! If you're seeing this page, then everything is working as expected.
          For more information, see the
         <a href="https://github.com/thesilentc/fidelity">README</a>.</p>
+        <nav>
+              <% if logged_in? %>
+
+                <a href="/clubs/new"> Create Club </a>
+                <a href="/logout"> Log Out </a>
+                <p>Welcome, <%=current_user.username %></p>
+
+              <% else %>
+                <a href="/signup">Sign Up</a>
+                <a href="/login"> Sign In </a>
+              <%end %>
+
+            </nav>
     </div>
 
     <div class="sidebar">
