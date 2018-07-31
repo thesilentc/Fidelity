@@ -17,7 +17,7 @@ class UsersController < ApplicationController
         if !session[:user_id]
           erb :'users/new'
         else
-          redirect to '/clubs'
+          redirect to '/hosts'
         end
       end
 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     else
       @user = User.create(:username => params[:username], :password => params[:password])
       session[:user_id] = @user.id
-      redirect '/bags'
+      redirect '/hosts'
     end
   end
 
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     if !session[:user_id]
       erb :'users/login'
     else
-      redirect '/bags'
+      redirect '/hosts'
     end
   end
 
