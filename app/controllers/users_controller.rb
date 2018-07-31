@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
-  get '/users' do
-       @users = Users.all
-       erb:'users/index'
-     end
+  get '/users/:id' do
+    if !logged_in?
+      redirect '/hosts'
+    end
 
      get '/users/:slug' do
    @users = Users.find_by_slug(params[:slug])
@@ -45,3 +45,4 @@ end
   delete "/users/:id/delete" do
     redirect "/users"
   end
+end
