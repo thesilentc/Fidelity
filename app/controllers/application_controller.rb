@@ -1,12 +1,14 @@
 require './config/environment'
 
 # it is convention that only the ApplicationController inherit Sinatra::Base
-# the other controllers in app then inherit frrom < ApplicationController 
+# the other controllers in app then inherit frrom < ApplicationController
 class ApplicationController < Sinatra::Base
 
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    enable :sessions
+    set :session_secret, "turboencabulator"
   end
 
   get "/" do
