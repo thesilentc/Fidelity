@@ -8,18 +8,18 @@
          For more information, see the
         <a href="https://github.com/thesilentc/fidelity">README</a>.</p>
         <nav>
-              <% if logged_in? %>
+            <% if logged_in? %>
 
-                <a href="/clubs/new"> Create Club </a>
-                <a href="/logout"> Log Out </a>
-                <p>Welcome, <%=current_user.username %></p>
+              <a href="/hosts/new"> Create Host </a>
+              <a href="/logout"> Log Out </a>
+              <p>Welcome, <%=current_user.username %></p>
 
-              <% else %>
-                <a href="/signup">Sign Up</a>
-                <a href="/login"> Sign In </a>
-              <%end %>
+            <% else %>
+              <a href="/signup">Sign Up</a>
+              <a href="/login"> Sign In </a>
+            <%end %>
 
-            </nav>
+          </nav>
     </div>
 
     <div class="sidebar">
