@@ -8,12 +8,11 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "turboencabulator"
+    set :session_secret, "secret"
   end
 
-  get "/" do
+  get '/' do
     erb :index
-    #Welcome to Fidelity
   end
 
   helpers do
